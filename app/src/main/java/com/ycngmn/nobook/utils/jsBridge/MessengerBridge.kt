@@ -5,7 +5,6 @@ import android.content.Intent
 import android.net.Uri
 import android.webkit.JavascriptInterface
 import android.widget.Toast
-import com.ycngmn.nobook.R
 
 class MessengerBridge(private val context: Context) {
     @JavascriptInterface
@@ -37,12 +36,13 @@ class MessengerBridge(private val context: Context) {
     private fun showMessengerUnavailableToast() {
         Toast.makeText(
             context,
-            context.getString(R.string.messenger_not_installed),
+            MESSENGER_UNAVAILABLE_MESSAGE,
             Toast.LENGTH_SHORT
         ).show()
     }
 
     private companion object {
         const val MESSENGER_PACKAGE = "com.facebook.orca"
+        const val MESSENGER_UNAVAILABLE_MESSAGE = "Messenger app is not installed"
     }
 }
