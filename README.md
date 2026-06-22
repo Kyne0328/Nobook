@@ -14,17 +14,17 @@
 
 ## • Installation
 
-[<img src='images/get-it-on-github.png' alt='Get it on GitHub' height = "90">](https://github.com/ycngmn/Nobook/releases/latest)
+[<img src='images/get-it-on-github.png' alt='Get it on GitHub' height = "90">](https://github.com/Kyne0328/Nobook/releases/latest)
 
 ## • Setup
 
 1.  **Clone the repository**
     * In Android Studio:
         * File > New > Project from Version Control
-        * Paste `https://github.com/ycngmn/Nobook.git` and clone.
+        * Paste `https://github.com/Kyne0328/Nobook.git` and clone.
     * Or via terminal:
     ```bash
-    git clone https://github.com/ycngmn/Nobook.git
+    git clone https://github.com/Kyne0328/Nobook.git
     cd Nobook
     ``` 
 2.  **Open in Android Studio.** (only if cloned via terminal)
