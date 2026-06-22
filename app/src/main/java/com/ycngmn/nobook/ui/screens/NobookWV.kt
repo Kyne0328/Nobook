@@ -44,6 +44,7 @@ import com.ycngmn.nobook.utils.ExternalRequestInterceptor
 import com.ycngmn.nobook.utils.fileChooserWebViewParams
 import com.ycngmn.nobook.utils.jsBridge.ClipboardBridge
 import com.ycngmn.nobook.utils.jsBridge.DownloadBridge
+import com.ycngmn.nobook.utils.jsBridge.MessengerBridge
 import com.ycngmn.nobook.utils.jsBridge.NobookSettings
 import com.ycngmn.nobook.utils.jsBridge.ThemeChange
 import com.ycngmn.nobook.utils.rememberAutoDesktop
@@ -274,6 +275,10 @@ fun NobookWebView(
                 addJavascriptInterface(
                     ClipboardBridge(context),
                     "ClipboardBridge"
+                )
+                addJavascriptInterface(
+                    MessengerBridge(context),
+                    "MessengerBridge"
                 )
 
                 setLayerType(View.LAYER_TYPE_HARDWARE, null)
