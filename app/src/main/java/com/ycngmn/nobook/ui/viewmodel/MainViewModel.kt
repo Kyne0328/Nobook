@@ -46,6 +46,7 @@ class MainViewModel(
             Script(settings.stickyNavbar.value, R.raw.sticky_navbar, "sticky_navbar.js"),
             Script(!settings.pinchToZoom.value, R.raw.pinch_to_zoom, "pinch_to_zoom.js"),
             Script(settings.amoledBlack.value, R.raw.amoled_black, "amoled_black.js"),
+            Script(settings.nativeAppStyle.value, R.raw.native_app_style, "native_app_style.js"),
             Script(settings.hideSuggested.value, R.raw.hide_suggested, "hide_suggested.js"),
             Script(settings.hideReels.value, R.raw.hide_reels, "hide_reels.js"),
             Script(settings.hideStories.value, R.raw.hide_stories, "hide_stories.js"),
