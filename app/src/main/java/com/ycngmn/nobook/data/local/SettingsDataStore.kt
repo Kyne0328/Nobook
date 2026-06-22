@@ -20,6 +20,7 @@ class SettingsDataStore(private val context: Context) {
         val STICKY_NAVBAR = booleanPreferencesKey("sticky_navbar")
         val PINCH_TO_ZOOM = booleanPreferencesKey("pinch_to_zoom")
         val AMOLED_BLACK = booleanPreferencesKey("amoled_black")
+        val NATIVE_APP_STYLE = booleanPreferencesKey("native_app_style")
         val HIDE_SUGGESTED = booleanPreferencesKey("hide_suggestion")
         val HIDE_REELS = booleanPreferencesKey("hide_reels")
         val HIDE_STORIES = booleanPreferencesKey("hide_stories")
@@ -73,6 +74,11 @@ class SettingsDataStore(private val context: Context) {
     val amoledBlack = context.dataStore.data.map { it[AMOLED_BLACK] ?: false }
     suspend fun setAmoledBlack(amoledBlack: Boolean) {
         context.dataStore.edit { it[AMOLED_BLACK] = amoledBlack }
+    }
+
+    val nativeAppStyle = context.dataStore.data.map { it[NATIVE_APP_STYLE] ?: false }
+    suspend fun setNativeAppStyle(nativeAppStyle: Boolean) {
+        context.dataStore.edit { it[NATIVE_APP_STYLE] = nativeAppStyle }
     }
 
     val hideSuggested = context.dataStore.data.map { it[HIDE_SUGGESTED] ?: false }

@@ -26,6 +26,7 @@ import androidx.compose.material.icons.outlined.FileDownload
 import androidx.compose.material.icons.outlined.GridView
 import androidx.compose.material.icons.outlined.PanoramaWideAngle
 import androidx.compose.material.icons.outlined.Pinch
+import androidx.compose.material.icons.outlined.PhoneAndroid
 import androidx.compose.material.icons.outlined.Shield
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -71,6 +72,7 @@ fun SettingsContent(
     val stickyNavbar = viewModel.stickyNavbar.collectAsState()
     val pinchToZoom = viewModel.pinchToZoom.collectAsState()
     val amoledBlack = viewModel.amoledBlack.collectAsState()
+    val nativeAppStyle = viewModel.nativeAppStyle.collectAsState()
 
     val isAutoDesktop = rememberAutoDesktop()
 
@@ -147,6 +149,13 @@ fun SettingsContent(
                     supportingText = stringResource(R.string.enable_pure_black_theme_for_amoled_displays),
                     isActive = amoledBlack.value,
                     onClick = { viewModel.setAmoledBlack(!amoledBlack.value) }
+                ),
+                SettingsItem(
+                    icon = Icons.Outlined.PhoneAndroid,
+                    title = stringResource(R.string.native_app_style_title),
+                    supportingText = stringResource(R.string.make_facebook_web_feel_more_like_the_android_app),
+                    isActive = nativeAppStyle.value,
+                    onClick = { viewModel.setNativeAppStyle(!nativeAppStyle.value) }
                 )
             )
         )
@@ -155,7 +164,7 @@ fun SettingsContent(
             TextButton(
                 modifier = Modifier.align(Alignment.Center),
                 onClick = {
-                    val githubRepoUrl = "https://github.com/ycngmn/nobook"
+                    val githubRepoUrl = "https://github.com/Kyne0328/Nobook"
                     val intent = Intent(Intent.ACTION_VIEW, githubRepoUrl.toUri())
                     context.startActivity(intent)
                 }

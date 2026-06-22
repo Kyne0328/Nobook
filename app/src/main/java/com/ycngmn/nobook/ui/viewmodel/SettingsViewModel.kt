@@ -14,6 +14,7 @@ import com.ycngmn.nobook.data.local.SettingsDataStore.Companion.HIDE_REELS
 import com.ycngmn.nobook.data.local.SettingsDataStore.Companion.HIDE_STORIES
 import com.ycngmn.nobook.data.local.SettingsDataStore.Companion.HIDE_SUGGESTED
 import com.ycngmn.nobook.data.local.SettingsDataStore.Companion.IMMERSIVE_MODE
+import com.ycngmn.nobook.data.local.SettingsDataStore.Companion.NATIVE_APP_STYLE
 import com.ycngmn.nobook.data.local.SettingsDataStore.Companion.PINCH_TO_ZOOM
 import com.ycngmn.nobook.data.local.SettingsDataStore.Companion.REMOVE_ADS
 import com.ycngmn.nobook.data.local.SettingsDataStore.Companion.STICKY_NAVBAR
@@ -59,7 +60,7 @@ class SettingsViewModel(
     )
     val stickyNavbar = dataStore.stickyNavbar.stateIn(
         scope = viewModelScope,
-        initialValue = initialPrefs[STICKY_NAVBAR] ?: false,
+        initialValue = initialPrefs[STICKY_NAVBAR] ?: true,
         started = SharingStarted.WhileSubscribed()
     )
     val pinchToZoom = dataStore.pinchToZoom.stateIn(
@@ -70,6 +71,11 @@ class SettingsViewModel(
     val amoledBlack = dataStore.amoledBlack.stateIn(
         scope = viewModelScope,
         initialValue = initialPrefs[AMOLED_BLACK] ?: false,
+        started = SharingStarted.WhileSubscribed()
+    )
+    val nativeAppStyle = dataStore.nativeAppStyle.stateIn(
+        scope = viewModelScope,
+        initialValue = initialPrefs[NATIVE_APP_STYLE] ?: false,
         started = SharingStarted.WhileSubscribed()
     )
     val hideSuggested = dataStore.hideSuggested.stateIn(
@@ -148,6 +154,12 @@ class SettingsViewModel(
     fun setAmoledBlack(amoledBlack: Boolean) {
         viewModelScope.launch {
             dataStore.setAmoledBlack(amoledBlack)
+        }
+    }
+
+    fun setNativeAppStyle(nativeAppStyle: Boolean) {
+        viewModelScope.launch {
+            dataStore.setNativeAppStyle(nativeAppStyle)
         }
     }
 
